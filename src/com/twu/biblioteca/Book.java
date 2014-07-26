@@ -11,7 +11,11 @@ public class Book {
     Book() {
 
     }
-
+    Book(String bookname,String bookauthor,String bookpress) {
+        bookName = bookname;
+        bookAuthor = bookauthor;
+        bookPress = bookpress;
+    }
     public void setBookName(String bookname) {
         this.bookName = bookname;
     }

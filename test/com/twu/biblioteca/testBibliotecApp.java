@@ -102,4 +102,26 @@ public class testBibliotecApp {
         assertEquals("press1",result);
 
     }
+
+    @Test
+    public void testReturnBookWhenGivenBookName() {
+        String bookname = "book1";
+        Book result = biliotecaApp.getBook(bookname);
+        assertEquals(book1,result);
+    }
+
+    /*@Ignore
+    public void testLibraryRemoveOne() {
+        int result = biliotecaApp.deleteBookFromLibraryAndAddBookToLendbook(book1);
+        assertEquals(1,result);
+
+    }
+
+    @Ignore
+    public void testLibraryRemoveTwo() {
+        int result = biliotecaApp.deleteBookFromLibraryAndAddBookToLendbook(book1);
+        result = biliotecaApp.deleteBookFromLibraryAndAddBookToLendbook(book2);
+        assertEquals(0,result);
+    }*/
+
 }
