@@ -4,12 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BibliotecaApp {
 
     private static Library library = new Library();
-    private static String[] faceBook = {"MainMenu","Check-Out Book","Return Book","Quit"};
-    private static String[] mainmenu = {"List Books"};
+    private static ArrayList<String> faceBook = new ArrayList<String>(Arrays.asList("MainMenu","Check-Out Book","Return Book","Quit"));
+    private static ArrayList<String> mainmenu = new ArrayList<String>(Arrays.asList("List Books","List Movies"));
     private static BibliotecaApp bibliotecaApp = new BibliotecaApp();
 
 
@@ -130,21 +131,13 @@ public class BibliotecaApp {
                 break;
             }
 
-            boolean validMenuOption = false;
-            for(int temp=0; temp<mainmenu.length; temp++){
-                if(mainMenuInput.equals(mainmenu[temp])) {
-                    validMenuOption = true;
-                    break;
-                }
-            }
-
-            if(!validMenuOption)
+            if(!mainmenu.contains(mainMenuInput))
                 System.out.println("Select a valid option!");
             else {
                 bibliotecaApp.welcomeMessage(mainMenuInput);
-                String[] booksName = new String[100];
+                ArrayList<String> booksName = new ArrayList<>();
                 for (int temp = 0; temp <= library.getCountsOfBooksInLibrary()-1; temp++) {
-                    booksName[temp] = ((Book)library.getAllBooksFromLibrary().get(temp)).getName();
+                    booksName.add(((Book)library.getAllBooksFromLibrary().get(temp)).getName());
                 }
                 viewFaceBook(booksName);
 
@@ -194,10 +187,10 @@ public class BibliotecaApp {
 
     }
 
-    public static void viewFaceBook(String[] facebook){
-        for(int temp=0; temp<facebook.length; temp++){
-            if(null != facebook[temp])
-            System.out.println(facebook[temp]);
+    public static void viewFaceBook(ArrayList<String> facebook){
+        for(int temp=0; temp<facebook.size(); temp++){
+            if(null != facebook.get(temp))
+            System.out.println(facebook.get(temp));
         }
     }
 }
