@@ -20,8 +20,12 @@ public class testBook {
     public void setArraylistAndBook() {
 
         book1 = new Book("book1","author1","press1");
-        book2 = new Book("book2","auhtor2","press2");
-        book3 = new Book("book3","auhtor3","press3");
+        book2 = new Book("book2","author2","press2");
+
+        book3 = new Book();
+        book3.setBookName("book1");
+        book3.setBookAuthor("author1");
+        book3.setBookPress("press1");
     }
 
     @Test
@@ -32,7 +36,7 @@ public class testBook {
 
     @Test
     public void testEqualSuccess() {
-        boolean result = book1.equals(book1);
+        boolean result = book1.equals(book3);
         assertTrue(result);
     }
 

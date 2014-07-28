@@ -8,6 +8,8 @@ public class Book {
     private String bookAuthor;
     private String bookPress;
 
+    Book(){}
+
     Book(Book book) {
         bookName = book.bookName;
         bookAuthor = book.bookAuthor;
