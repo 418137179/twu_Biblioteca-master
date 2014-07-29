@@ -5,10 +5,11 @@ package com.twu.biblioteca;
  */
 public class Student extends People {
 
+    private String duty = "student";
     Student(){super();}
 
-    Student(String name, String emailAddress, String phoneNumber, String password){
-        super(name,emailAddress,phoneNumber,password);
+    Student(String name, String emailAddress, String phoneNumber, String password,String duty){
+        super(name,emailAddress,phoneNumber,password,duty);
     }
 }
 
