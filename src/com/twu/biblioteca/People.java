@@ -5,23 +5,28 @@ package com.twu.biblioteca;
  */
 public class People {
 
-    private String name = "";
-    private String emailAddress = "";
-    private String phoneNumber = "";
-    private String password = "";
+    protected String name = "";
+    protected String emailAddress = "";
+    protected String phoneNumber = "";
+    protected String password = "";
+    protected String duty;
+
     People(){}
 
-    People(String name, String emailAddress, String phoneNumber, String password){
+    People(String name, String emailAddress, String phoneNumber, String password,String duty){
         this.name = name;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.duty = duty;
     }
 
     People(People people){
         name = people.name;
         emailAddress = people.emailAddress;
         phoneNumber = people.phoneNumber;
+        password = people.password;
+        duty = people.duty;
     }
 
     public People setName(String name){
@@ -42,6 +47,10 @@ public class People {
     public People setPassword(String password){
         this.password = password;
         return this;
+    }
+
+    public void setDuty(String duty){
+        this.duty = duty;
     }
 
     public boolean equals(Object obj) {
@@ -68,5 +77,9 @@ public class People {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getDuty() {
+        return duty;
     }
 }
