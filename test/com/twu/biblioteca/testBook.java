@@ -26,6 +26,7 @@ public class testBook {
         book3.setBookName("book1");
         book3.setBookAuthor("author1");
         book3.setBookPress("press1");
+        book3.setBookOwner(new People("library","library","library","library","library"));
     }
 
     @Test
@@ -58,6 +59,13 @@ public class testBook {
     public void couldReturnBookPress() {
         String result = book1.getPress();
         assertEquals("press1",result);
+
+    }
+
+    @Test
+    public void couldReturnBookOwner() {
+        People result = book1.getOwner();
+        assertEquals(new People("library","library","library","library","library"), result);
 
     }
 }

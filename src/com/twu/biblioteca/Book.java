@@ -7,19 +7,24 @@ public class Book {
     private String bookName;
     private String bookAuthor;
     private String bookPress;
+    private People bookOwner;
 
-    Book(){}
+    Book(){
+        this.bookOwner = new People("library","library","library","library","library");
+    }
 
     Book(Book book) {
         bookName = book.bookName;
         bookAuthor = book.bookAuthor;
         bookPress = book.bookPress;
-
+        bookOwner = book.bookOwner;
     }
     Book(String bookname,String bookauthor,String bookpress) {
-        bookName = bookname;
-        bookAuthor = bookauthor;
-        bookPress = bookpress;
+        this.bookName = bookname;
+        this.bookAuthor = bookauthor;
+        this.bookPress = bookpress;
+        this.bookOwner = new People("library","library","library","library","library");
+
     }
     public void setBookName(String bookname) {
         this.bookName = bookname;
@@ -38,7 +43,8 @@ public class Book {
             Book book = (Book) obj;
             return this.bookName.equals(book.bookName)
                     && this.bookAuthor.equals(book.bookAuthor)
-                    && this.bookPress.equals(book.bookPress);
+                    && this.bookPress.equals(book.bookPress)
+                    && this.bookOwner.equals(book.bookOwner);
         }
         return super.equals(obj);
     }
@@ -54,5 +60,15 @@ public class Book {
 
     public String getPress() {
         return bookPress;
+    }
+
+    public void setBookOwner(People people) {
+        this.bookOwner = people;
+    }
+
+    public People getOwner() {
+        People result = new People(bookOwner);
+        result.setPassword("");
+        return result;
     }
 }
