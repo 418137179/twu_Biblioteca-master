@@ -10,14 +10,18 @@ public class Movie {
     private String year = "";
     private String director = "";
     private int rating = 0;
+    private People owner;
 
-    Movie(){}
+    Movie(){
+        this.owner = new People("library","library","library","library","library");
+    }
 
     Movie(String name, String year, String director, int rating){
         this.name = name;
         this.year = year;
         this.director = director;
         this.rating = rating;
+        this.owner = new People("library","library","library","library","library");
     }
 
     Movie(Movie movie){
@@ -25,6 +29,7 @@ public class Movie {
         this.year = movie.year;
         this.director = movie.director;
         this.rating = movie.rating;
+        this.owner = new People("library","library","library","library","library");
     }
 
 
@@ -48,6 +53,12 @@ public class Movie {
         return rating;
     }
 
+    public People getOwner(){
+        People result = new People(owner);
+        result.setPassword("");
+        return result;
+    }
+
     public void setMovieYear(String movieYear) {
         this.year = movieYear;
     }
@@ -56,5 +67,19 @@ public class Movie {
         this.director = movieDirector;
     }
 
+    public boolean equals(Object obj) {
+        if (obj instanceof Movie) {
+            Movie movie = (Movie) obj;
+            return this.name.equals(movie.name)
+                    && this.year.equals(movie.year)
+                    && this.director.equals(movie.director)
+                    && this.rating == movie.rating
+                    && this.owner.equals(owner);
+        }
+        return super.equals(obj);
+    }
 
+    public void setMovieOwner(People owner) {
+        this.owner = owner;
+    }
 }

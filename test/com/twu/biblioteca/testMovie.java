@@ -45,4 +45,10 @@ public class testMovie {
         assertEquals(1,result);
 
     }
+
+    @Test
+    public void couldReturnMovieOwener() {
+        People result = movie.getOwner();
+        assertEquals(new People("library","library","library","library","library"),result);
+    }
 }
